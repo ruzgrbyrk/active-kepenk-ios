@@ -1,0 +1,48 @@
+name: Build iOS IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-14
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Add iOS platform
+        run: npx cap add ios
+
+      - name: Sync iOS
+        run: npx cap sync ios
+
+      - name: Install CocoaPods
+        run: |
+          cd ios/App
+          pod install
+
+      - name: Build unsigned app
+        run: |
+          xcodebuild -workspace ios/App/App.xcworkspace             -scheme App             -configuration Release             -sdk iphoneos             -derivedDataPath build             CODE_SIGNING_ALLOWED=NO             CODE_SIGNING_REQUIRED=NO             CODE_SIGN_IDENTITY="" build
+
+      - name: Package unsigned IPA
+        run: |
+          mkdir -p Payload
+          APP_PATH=$(find build -name "App.app" | head -n 1)
+          cp -R "$APP_PATH" Payload/ActiveKepenk.app
+          zip -r ActiveKepenk-unsigned.ipa Payload
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: ActiveKepenk-unsigned-ipa
+          path: ActiveKepenk-unsigned.ipa
