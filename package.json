@@ -1,0 +1,17 @@
+{
+  "name": "active-kepenk-ios",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo Active Kepenk haz\u0131r",
+    "sync": "npx cap sync ios",
+    "open:ios": "npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.2.0",
+    "@capacitor/ios": "^6.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.2.0"
+  }
+}

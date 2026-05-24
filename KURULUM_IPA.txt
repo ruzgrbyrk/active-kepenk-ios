@@ -1,0 +1,36 @@
+ACTIVE KEPENK - iOS IPA BUILD REHBERİ
+
+Bu paket, mevcut Netlify uygulamanı iPhone uygulaması gibi açacak Capacitor projesidir.
+Supabase ayarlarına tekrar dokunmana gerek yoktur.
+
+1) GitHub'a gir:
+   https://github.com
+
+2) Yeni repository oluştur:
+   Örnek isim: active-kepenk-ios
+
+3) Bu ZIP'in içindeki dosyaları repository'ye yükle.
+   Dikkat: ZIP dosyasını değil, içindeki package.json, capacitor.config.json, www, .github klasörlerini yükle.
+
+4) GitHub'da üst menüden Actions sekmesine gir.
+
+5) Solda "Build iOS IPA" workflow'unu seç.
+
+6) "Run workflow" butonuna bas.
+
+7) İşlem bitince workflow sayfasının en altında Artifacts bölümünde:
+   ActiveKepenk-unsigned-ipa
+   dosyasını indir.
+
+8) İndirilen dosyanın içinde:
+   ActiveKepenk-unsigned.ipa
+   olacak.
+
+9) Bu IPA'yı eSign ile imzalayıp iPhone'a kurabilirsin.
+
+NOTLAR:
+- Bu IPA unsigned çıkar. eSign ile imzalaman gerekir.
+- Uygulama içinde şu site açılır:
+  https://grand-biscotti-cefdc5.netlify.app/
+- Supabase ve kayıtlar aynı kalır.
+- Netlify sitesini güncellersen IPA içindeki uygulama da aynı siteyi açtığı için yeni hali görür.
