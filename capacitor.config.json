@@ -3,7 +3,7 @@
   "appName": "Active Kepenk",
   "webDir": "www",
   "server": {
-    "url": "https://grand-biscotti-cefdc5.netlify.app/",
+    "url": "https://activekepenk.netlify.app/",
     "cleartext": false
   },
   "ios": {
